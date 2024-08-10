@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page</title>
+
+    <!-- Menambahkan Google Fonts Montserrat -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        /* Mengubah font "Selamat Datang!" menjadi Montserrat */
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .input-field {
+            margin: 20px 0;
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        /* Menyesuaikan ukuran tombol "Lupa Password" menjadi lebih kecil */
+        
+        .small-button {
+            padding: 5px 10px;
+            font-size: 12px;
+            background-color: #f44336;
+            /* Warna tombol merah */
+        }
+        /* Menyesuaikan video agar memenuhi seluruh layar tanpa kontrol */
+        
+        #videoPage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #videoPage video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            /* Menonaktifkan interaksi dengan video */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Halaman 1 -->
+    <div id="page1" class="container">
+        <h1>Selamat Datang!</h1>
+        <div class="input-field">
+            <input type="text" id="nameInput" placeholder="Masukkan Nama Anda">
+        </div>
+        <button onclick="goToPage2()">Lanjut</button>
+    </div>
+
+    <!-- Halaman 2 -->
+    <div id="page2" class="container" style="display: none;">
+        <h1 id="userNameDisplay"></h1>
+        <div class="input-field">
+            <input type="password" id="passwordInput" placeholder="Masukkan Password">
+        </div>
+        <button onclick="validatePassword()">Lanjut</button>
+        <button class="small-button" onclick="goToForgotPassword()">Lupa Password</button>
+    </div>
+
+    <!-- Halaman 3 -->
+    <div id="page3" class="container" style="display: none;">
+        <h1>Silahkan Pilih:</h1>
+        <div class="button-group">
+            <button onclick="goToBirthdayPage()">Ulang Tahun</button>
+            <button onclick="goToPageSurprise()">Surprise</button>
+        </div>
+    </div>
+
+    <!-- Halaman 4 (Surprise) -->
+    <div id="videoPage" class="container" style="display: none;">
+        <video autoplay>
+        <source src="assets/firework1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </div>
+
+    <!-- Halaman 5 (Lupa Password) -->
+    <div id="forgotPasswordPage" class="container" style="display: none;">
+        <h1>Lupa Password?</h1>
+        <p>Silahkan ingat kembali password Anda.</p>
+        <button onclick="backToPage2()">Kembali</button>
+    </div>
+
+    <!-- Halaman 6 (Ulang Tahun - Masukkan Kata Sandi) -->
+    <div id="birthdayPage" class="container" style="display: none;">
+        <h1>Masukkan Kata Sandi Ulang Tahun</h1>
+        <div class="input-field">
+            <input type="password" id="birthdayPasswordInput" placeholder="Masukkan Kata Sandi">
+        </div>
+        <button onclick="validateBirthdayPassword()">Lanjut</button>
+        <button onclick="backToPage3()">Kembali</button>
+    </div>
+
+    <script>
+        function goToPage2() {
+            const name = document.getElementById('nameInput').value;
+            if (name) {
+                document.getElementById('userNameDisplay').innerText = "Halo, " + name + "!" + "bsdjsdhs";
+                document.getElementById('page1').style.display = 'none';
+                document.getElementById('page2').style.display = 'block';
+            } else {
+                alert('Silahkan masukkan nama Anda!');
+            }
+        }
+
+        function validatePassword() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === '2102020') {
+                document.getElementById('page2').style.display = 'none';
+                document.getElementById('page3').style.display = 'block';
+            } else {
+                alert('Password salah!');
+            }
+        }
+
+        function goToPageSurprise() {
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('videoPage').style.display = 'block';
+        }
+
+        function goToForgotPassword() {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('forgotPasswordPage').style.display = 'block';
+        }
+
+        function backToPage2() {
+            document.getElementById('forgotPasswordPage').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+        }
+
+        function goToBirthdayPage() {
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('birthdayPage').style.display = 'block';
+        }
+
+        function validateBirthdayPassword() {
+            const birthdayPassword = document.getElementById('birthdayPasswordInput').value;
+            if (birthdayPassword === 'ulangtahun') {
+                alert('Selamat Ulang Tahun!');
+                // Anda bisa menambahkan logika lain untuk setelah validasi berhasil
+            } else {
+                alert('Kata sandi salah!');
+            }
+        }
+
+        function backToPage3() {
+            document.getElementById('birthdayPage').style.display = 'none';
+            document.getElementById('page3').style.display = 'block';
+        }
+
+        function goToPageSurprise() {
+            window.location.href = 'flower.html'; // Arahkan ke flower.html
+        }
+    </script>
+
+
+
+</body>
+
+</html>
