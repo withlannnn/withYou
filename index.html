@@ -94,7 +94,7 @@
 <!-- Halaman 1 -->
 <div id="page1" class="container">
     <h1>Hi!</h1>
-    <h3>Kenalan dulu kita, Nama guweh Erlangga, kalo loh?</h3>
+    <h3>Kenalan dulu, Nama guweh Erlangga, kalo loh?</h3>
     <div class="input-field">
         <input type="text" id="nameInput" placeholder="Ketik disini">
     </div>
@@ -113,26 +113,26 @@
 
 <!-- Halaman 3 -->
 <div id="page3" class="container" style="display: none;">
-    <h1>Yooo, Yang Mulia Permaisuri</h1>
-    <h3>Ada 2 tombol, Yang Mulia Permaisuri tinggal pilih</h3>
+    <h1>Yoooo!! I have something for You</h1>
+    <h3> There is a button, just choose💋</h3>
     <div class="button-group">
-        <button onclick="goToBirthdayPage()">Birthday</button>
-        <button onclick="goToPageSurprise()">Surprise</button>
+        <button onclick="goToBirthdayPage()">Birthday🎂</button>
+        <button onclick="goToPageSurprise()">Surprise🎉</button>
     </div>
 </div>
 
 <!-- Halaman 5 (Lupa Password) -->
 <div id="forgotPasswordPage" class="container" style="display: none;">
-    <h1>Hah???? Lo lupa?</h1>
-    <h3>Inget inget coba, "Tuhan tidak akan memberikan cobaan yg melebihi kemampuan umatnya" dan "guweh tidak akan memberikan password yg tidak lo ketahui"</h3>
+    <h1>Hah???? lupa?</h1>
+    <h3>"Tuhan tidak akan memberikan cobaan yg melebihi kemampuan umatnya" dan "guweh tidak akan memberikan password yg tidak lo tau"</h3>
     <button onclick="backToPage2()">Kembali</button>
 </div>
 
 <!-- Halaman 6 (Ulang Tahun - Masukkan Kata Sandi) -->
 <div id="birthdayPage" class="container" style="display: none;">
-    <h1>Yang Mulia Permaisuri Ulang Tahun?</h1>
+    <h1>Is today your birthday?</h1>
     <div class="input-field">
-        <input type="password" id="birthdayPasswordInput" placeholder="Masukkan Password">
+        <input type="password" id="birthdayPasswordInput" placeholder="If yes, write the code!!">
     </div>
     <button onclick="validateBirthdayPassword()">Lanjut</button>
     <button onclick="backToPage3()">Kembali</button>
@@ -142,7 +142,7 @@
     function goToPage2() {
         const name = document.getElementById('nameInput').value;
         if (name) {
-            document.getElementById('userNameDisplay').innerText = "Salken, " + name + "!";
+            document.getElementById('userNameDisplay').innerText = "Halooo, " + name + "!";
             document.getElementById('page1').style.display = 'none';
             document.getElementById('page2').style.display = 'block';
         } else {
