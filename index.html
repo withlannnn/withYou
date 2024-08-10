@@ -93,10 +93,10 @@
 
 <!-- Halaman 1 -->
 <div id="page1" class="container">
-    <h1>Hi!</h1>
-    <h3>Kenalan dulu, Nama guweh Erlangga, kalo loh?</h3>
+    <h1>Heyyo, what's up!!!</h1>
+    <h3>Kenalin, guweh Erlangga, kalo loh?</h3>
     <div class="input-field">
-        <input type="text" id="nameInput" placeholder="Type here">
+        <input type="text" id="nameInput" placeholder="Type disini!!!">
     </div>
     <button onclick="goToPage2()">Lanjut</button>
 </div>
@@ -105,7 +105,7 @@
 <div id="page2" class="container" style="display: none;">
     <h1 id="userNameDisplay"></h1>
     <div class="input-field">
-        <input type="password" id="passwordInput" placeholder="Masukkan Password">
+        <input type="password" id="passwordInput" placeholder="Password dulu say!!!">
     </div>
     <button class="small-button" onclick="goToForgotPassword()">Lupa Password?</button>
     <button onclick="validatePassword()">Lanjut</button>
@@ -113,11 +113,11 @@
 
 <!-- Halaman 3 -->
 <div id="page3" class="container" style="display: none;">
-    <h1>Yoooo!! I have something for You</h1>
+    <h1>Yoooo, I have something for You!!</h1>
     <h3>Just choose💋</h3>
     <div class="button-group">
         <button onclick="goToBirthdayPage()">Birthday🎂</button>
-        <button onclick="goToPageSurprise()">Surprise🎉</button>
+        <button onclick="goToPageSurprise()">Flowers💐</button>
     </div>
 </div>
 
@@ -131,7 +131,7 @@
 <div id="birthdayPage" class="container" style="display: none;">
     <h1>your birthday?</h1>
     <div class="input-field">
-        <input type="password" id="birthdayPasswordInput" placeholder="If yes, type codenya!!">
+        <input type="password" id="birthdayPasswordInput" placeholder="Klo iyaaa, type codenya!!">
     </div>
     <button onclick="validateBirthdayPassword()">Lanjut</button>
     <button onclick="backToPage3()">Kembali</button>
@@ -141,7 +141,7 @@
     function goToPage2() {
         const name = document.getElementById('nameInput').value;
         if (name) {
-            document.getElementById('userNameDisplay').innerText = "Halooo, " + name + "! 😏";
+            document.getElementById('userNameDisplay').innerText = "Halooo, " + name + "!";
             document.getElementById('page1').style.display = 'none';
             document.getElementById('page2').style.display = 'block';
         } else {
@@ -155,7 +155,7 @@
             document.getElementById('page2').style.display = 'none';
             document.getElementById('page3').style.display = 'block';
         } else {
-            alert('PW Salah!! tanya aja, nanti kukasih tahu😖');
+            alert('Passwordnya salah say, coba lagi! ');
         }
     }
 
@@ -177,7 +177,7 @@
     function validateBirthdayPassword() {
         const birthdayPassword = document.getElementById('birthdayPasswordInput').value;
         if (birthdayPassword === '24128523') {
-            alert('Selamat Ulang Tahun!');
+            alert('Yaelah, trus kenapa klo you birthday? peduli apa guweh!');
             // Anda bisa menambahkan logika lain untuk setelah validasi berhasil
         } else {
             alert('Kata sandi salah!');
