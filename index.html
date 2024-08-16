@@ -79,6 +79,13 @@
             font-family: 'Montserrat', sans-serif;
         }
 
+        .spaced-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Jarak antara tombol-tombol */
+            align-items: center;
+        }
+
         @media (max-width: 600px) {
             .button-group {
                 display: grid;
@@ -163,8 +170,10 @@
     <div class="input-field">
         <input type="password" id="birthdayPasswordInput" placeholder="Klo iyaaa, type codenya!!">
     </div>
-    <button onclick="validateBirthdayPassword()">Lanjut</button>
-    <button onclick="backToPage3()">Kembali</button>
+    <div class="spaced-buttons">
+        <button onclick="validateBirthdayPassword()">Lanjut</button>
+        <button onclick="backToPage3()">Kembali</button>
+    </div>
 </div>
 
 <script>
