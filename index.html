@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>withLan</title>
     
-    <!-- Menambahkan Google Fonts Montserrat -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
 
     <style>
-        /* Mengubah seluruh teks di halaman menggunakan font Montserrat */
         body {
             font-family: 'Montserrat', sans-serif;
             display: flex;
@@ -44,14 +42,13 @@
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 40px;
         }
 
-        .button-group .row {
+        .column {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 20px;
-            margin-top: 10px;
         }
 
         button {
@@ -63,10 +60,12 @@
             color: white;
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
+            width: 200px;
+            text-align: center;
         }
 
         button:hover {
-            background-color: #4CAF50;
+            background-color: #45a049;
         }
 
         .small-button {
@@ -123,13 +122,15 @@
     <h1>Yoooo, I have something for You!!</h1>
     <h3>Just choose💋</h3>
     <div class="button-group">
-        <button onclick="goToBirthdayPage()">Birthday🎂</button>
-        <button onclick="goToPageSurprise()">Flowers💐</button>
-    </div>
-    <div class="row">
+        <div class="column">
+            <button onclick="goToBirthdayPage()">Birthday🎂</button>
             <button onclick="goToPageGift()">Gift🎁</button>
+        </div>
+        <div class="column">
+            <button onclick="goToPageSurprise()">Flowers💐</button>
             <button onclick="goToPageMusic()">Music🎵</button>
         </div>
+    </div>
 </div>
 
 <!-- Halaman 5 (Lupa Password) -->
@@ -189,7 +190,6 @@
         const birthdayPassword = document.getElementById('birthdayPasswordInput').value;
         if (birthdayPassword === '24128523') {
             alert('Yaelah, trus kenapa klo you birthday? peduli apa guweh!');
-            // Anda bisa menambahkan logika lain untuk setelah validasi berhasil
         } else {
             alert('Kata sandi salah!');
         }
@@ -203,13 +203,14 @@
     function goToPageSurprise() {
         window.location.href = 'flower.html';
     }
+
     function goToPageGift() {
         window.location.href = 'index2.html';
     }
+
     function goToPageMusic() {
         alert('Music button clicked!');
     }
-
 </script>
 
 </body>
