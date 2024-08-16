@@ -115,6 +115,10 @@
                 grid-area: music;
             }
 
+            .firework {
+                grid-area: firework;
+            }
+
             button {
                 width: 100%;
                 max-width: none;
@@ -126,10 +130,10 @@
 
 <!-- Halaman 1 (Ditampilkan pertama kali) -->
 <div id="page1" class="container">
-    <h1>Heyyo, what's up!!!</h1>
-    <h3>Kenalin, aku Erlangga, kalo kamu?</h3>
+    <h1>Heyyow! Wellcome!!!</h1>
+    <h3>Aku Erlangga, kalo kamu?</h3>
     <div class="input-field">
-        <input type="text" id="nameInput" placeholder="Type disini!!!">
+        <input type="text" id="nameInput" placeholder="Type disini!">
     </div>
     <button onclick="goToPage2()">Lanjut</button>
 </div>
@@ -153,8 +157,9 @@
     <div class="button-group">
         <button class="birthday" onclick="goToBirthdayPage()">Birthday🎂</button>
         <button class="flowers" onclick="goToPageSurprise()">Flowers💐</button>
-        <button class="gift" onclick="goToPageGift()">Gift🎁</button>
-        <button class="music" onclick="goToPageMusic()">Music🎶</button>
+        <button class="gift" onclick="goToPageGift()">Cloud🎁</button>
+        <button class="music" onclick="goToPageMusic()">Moon🎶</button>
+        <button class="firework" onclick="goToPageFirework()">Firework🎶</button>
     </div>
 </div>
 
@@ -168,7 +173,7 @@
 <div id="birthdayPage" class="container" style="display: none;">
     <h1>your birthday?</h1>
     <div class="input-field">
-        <input type="password" id="birthdayPasswordInput" placeholder="Klo iyaaa, type codenya!!">
+        <input type="password" id="birthdayPasswordInput" placeholder="Klo iya, type codenya!">
     </div>
     <div class="spaced-buttons">
         <button onclick="validateBirthdayPassword()">Lanjut</button>
@@ -180,11 +185,11 @@
     function goToPage2() {
         const name = document.getElementById('nameInput').value;
         if (name) {
-            document.getElementById('userNameDisplay').innerText = "Halooo, " + name + "!";
+            document.getElementById('userNameDisplay').innerText = "Hiii, " + name + "!";
             document.getElementById('page1').style.display = 'none';
             document.getElementById('page2').style.display = 'block';
         } else {
-            alert('Type nama kamu dulu, baru bisa lanjut!');
+            alert('Kamu belum kasih tau namamu, kasih tau dulu, baru bisa lanjut!');
         }
     }
 
@@ -218,7 +223,7 @@
         if (birthdayPassword === '24128523') {
             alert('Yaelah, trus kenapa klo you birthday? peduli apa guweh!');
         } else {
-            alert('Kata sandi salah!');
+            alert('Codenya salah!!!!');
         }
     }
 
@@ -237,6 +242,9 @@
 
     function goToPageMusic() {
         window.location.href = 'index3.html';
+    }
+    function goToPageFirework() {
+        window.location.href = 'index4.html';
     }
 </script>
 
