@@ -81,13 +81,24 @@
 
         @media (max-width: 600px) {
             .button-group {
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
                 align-items: center;
+                justify-items: center;
             }
 
             button {
-                width: 80%;
+                width: 100%;
                 max-width: none;
+            }
+            
+            .birthday-music {
+                grid-column: 1 / 2;
+            }
+            
+            .gift-flower {
+                grid-column: 2 / 3;
             }
         }
     </style>
@@ -121,14 +132,10 @@
     <h1>Yoooo, I have something for You!!</h1>
     <h3>Just choose💋</h3>
     <div class="button-group">
-        <div class="column">
-            <button onclick="goToBirthdayPage()">Birthday🎂</button>
-            <button onclick="goToPageGift()">Gift🎁</button>
-        </div>
-        <div class="column">
-            <button onclick="goToPageSurprise()">Flowers💐</button>
-            <button onclick="goToPageMusic()">Music🎶</button>
-        </div>
+        <button class="birthday-music" onclick="goToBirthdayPage()">Birthday🎂</button>
+        <button class="birthday-music" onclick="goToPageMusic()">Music🎶</button>
+        <button class="gift-flower" onclick="goToPageGift()">Gift🎁</button>
+        <button class="gift-flower" onclick="goToPageSurprise()">Flowers💐</button>
     </div>
 </div>
 
