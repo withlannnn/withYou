@@ -79,41 +79,6 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        #videoPage {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
-            overflow: hidden;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .video-wrapper::before {
-            content: '';
-            display: block;
-            padding-bottom: 56.25%; /* Default aspect ratio 16:9 */
-        }
-
-        .video-wrapper iframe, .video-wrapper video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         @media (max-width: 600px) {
             .button-group {
                 flex-direction: column;
@@ -124,22 +89,6 @@
                 width: 80%;
                 max-width: none;
             }
-        }
-
-        .aspect-ratio-1-1 .video-wrapper::before {
-            padding-bottom: 100%;
-        }
-
-        .aspect-ratio-4-5 .video-wrapper::before {
-            padding-bottom: 125%;
-        }
-
-        .aspect-ratio-16-9 .video-wrapper::before {
-            padding-bottom: 56.25%;
-        }
-
-        .aspect-ratio-21-9 .video-wrapper::before {
-            padding-bottom: 42.85%;
         }
     </style>
 </head>
@@ -192,12 +141,6 @@
     </div>
     <button onclick="validateBirthdayPassword()">Lanjut</button>
     <button onclick="backToPage3()">Kembali</button>
-</div>
-
-<div id="videoPage">
-    <div class="video-wrapper aspect-ratio-16-9">
-        <video src="assets/mon.mp4" autoplay></video>
-    </div>
 </div>
 
 <script>
