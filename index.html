@@ -15,10 +15,13 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            box-sizing: border-box;
         }
 
         .container {
             text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         h1, h6 {
@@ -31,7 +34,7 @@
 
         input[type="text"], input[type="password"] {
             padding: 10px;
-            width: 80%;
+            width: 100%;
             max-width: 300px;
             font-size: 16px;
             border-radius: 5px;
@@ -41,8 +44,9 @@
 
         .button-group {
             display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
             justify-content: center;
-            gap: 40px;
         }
 
         .column {
@@ -81,23 +85,66 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: black;
+            overflow: hidden;
         }
 
-        #videoPage video {
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .video-wrapper::before {
+            content: '';
+            display: block;
+            padding-bottom: 56.25%; /* Default aspect ratio 16:9 */
+        }
+
+        .video-wrapper iframe, .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button {
+                width: 80%;
+                max-width: none;
+            }
+        }
+
+        .aspect-ratio-1-1 .video-wrapper::before {
+            padding-bottom: 100%;
+        }
+
+        .aspect-ratio-4-5 .video-wrapper::before {
+            padding-bottom: 125%;
+        }
+
+        .aspect-ratio-16-9 .video-wrapper::before {
+            padding-bottom: 56.25%;
+        }
+
+        .aspect-ratio-21-9 .video-wrapper::before {
+            padding-bottom: 42.85%;
         }
     </style>
 </head>
 <body>
 
-<!-- Halaman 1 -->
 <div id="page1" class="container">
     <h1>Heyyo, what's up!!!</h1>
     <h3>Kenalin, aku Erlangga, kalo kamu?</h3>
@@ -107,39 +154,37 @@
     <button onclick="goToPage2()">Lanjut</button>
 </div>
 
-<!-- Halaman 2 -->
 <div id="page2" class="container" style="display: none;">
     <h1 id="userNameDisplay"></h1>
     <div class="input-field">
         <input type="password" id="passwordInput" placeholder="Passwordnya dulu!!!">
     </div>
-    <button class="small-button" onclick="goToForgotPassword()">Lupa Password?</button>
-    <button onclick="validatePassword()">Lanjut</button>
+    <div class="button-group">
+        <button class="small-button" onclick="goToForgotPassword()">Lupa Password?</button>
+        <button onclick="validatePassword()">Lanjut</button>
+    </div>
 </div>
 
-<!-- Halaman 3 -->
 <div id="page3" class="container" style="display: none;">
     <h1>Yoooo, I have something for You!!</h1>
     <h3>Just choose💋</h3>
     <div class="button-group">
         <div class="column">
             <button onclick="goToBirthdayPage()">Birthday🎂</button>
-            <button onclick="goToPageGift()">Question</button>
+            <button onclick="goToPageGift()">Gift🎁</button>
         </div>
         <div class="column">
             <button onclick="goToPageSurprise()">Flowers💐</button>
-            <button onclick="goToPageMusic()">Moon</button>
+            <button onclick="goToPageMusic()">Music🎶</button>
         </div>
     </div>
 </div>
 
-<!-- Halaman 5 (Lupa Password) -->
 <div id="forgotPasswordPage" class="container" style="display: none;">
     <h1>Hah???? lupa? gatau kali? minta gih🤭</h1>
     <button onclick="backToPage2()">Kembali</button>
 </div>
 
-<!-- Halaman 6 (Ulang Tahun - Masukkan Kata Sandi) -->
 <div id="birthdayPage" class="container" style="display: none;">
     <h1>your birthday?</h1>
     <div class="input-field">
@@ -147,6 +192,12 @@
     </div>
     <button onclick="validateBirthdayPassword()">Lanjut</button>
     <button onclick="backToPage3()">Kembali</button>
+</div>
+
+<div id="videoPage">
+    <div class="video-wrapper aspect-ratio-16-9">
+        <video src="assets/mon.mp4" autoplay muted></video>
+    </div>
 </div>
 
 <script>
