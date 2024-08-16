@@ -96,6 +96,7 @@
                 align-items: center;
                 grid-template-areas: 
                     "birthday flowers"
+                    "firework extra2"
                     "gift music";
             }
 
@@ -111,17 +112,34 @@
                 grid-area: gift;
             }
 
-            .music {
-                grid-area: music;
-            }
-
             .firework {
                 grid-area: firework;
+            }
+            
+            .extra2 {
+                grid-area: extra2;
+            }
+
+            .music {
+                grid-area: music;
             }
 
             button {
                 width: 100%;
                 max-width: none;
+            }
+            @media (max-width: 600px) {
+                .button-grid {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto auto auto auto auto auto;
+                    grid-template-areas: 
+                        "birthday"
+                        "flowers"
+                        "gift"
+                        "firework"
+                        "extra2"
+                        "music";
+                }
             }
         }
     </style>
@@ -158,8 +176,9 @@
         <button class="birthday" onclick="goToBirthdayPage()">Birthday🎂</button>
         <button class="flowers" onclick="goToPageSurprise()">Flowers💐</button>
         <button class="gift" onclick="goToPageGift()">Cloud🎁</button>
-        <button class="music" onclick="goToPageMusic()">Moon🎶</button>
         <button class="firework" onclick="goToPageFirework()">Firework🎶</button>
+        <button class="extra2" onclick="goToPageExtra2()">Extra2</button>
+        <button class="music" onclick="goToPageMusic()">Moon🎶</button>
     </div>
 </div>
 
@@ -240,12 +259,18 @@
         window.location.href = 'index2.html';
     }
 
-    function goToPageMusic() {
-        window.location.href = 'index3.html';
-    }
     function goToPageFirework() {
         window.location.href = 'index4.html';
     }
+
+    function goToPageExtra2() {
+        window.location.href = 'index4.html';
+    }
+
+    function goToPageMusic() {
+        window.location.href = 'index3.html';
+    }
+    
 </script>
 
 </body>
